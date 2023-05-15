@@ -52,4 +52,23 @@ public class StoreController {
     public List<StoreDTO> findByKwd(@PathVariable String kwd) {
         return storeService.findByNameKwd(kwd);
     }
+
+    // Delete
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id) {
+        storeService.deleteById(id);
+    }
+
+    // Put -> 새로운 걸 넣어서 완전히 대체하겠다
+    @PutMapping("/{id}")
+    public StoreDTO updateById(@PathVariable Long id, @RequestBody StoreDTO store) {
+        // Put으로 넣으면 데이터 전체를 넣어서 한 번 바꾸는게 규약
+        return storeService.updateById(id, store);
+    }
+
+    @PatchMapping("/{id}/price")
+    public StoreDTO changePriceById(@PathVariable Long id, @RequestParam int price) {
+        // 하나의 속성만 바꾸는게 규약
+        return storeService.changePriceById(id, price);
+    }
 }

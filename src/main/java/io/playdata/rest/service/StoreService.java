@@ -35,4 +35,22 @@ public class StoreService {
         return price ? storeRepository.findAllByOrderByPriceAsc()
                 : storeRepository.findAllByOrderByPriceDesc();
     }
+
+    public void deleteById(Long id) {
+        storeRepository.deleteById(id);
+    }
+
+    public StoreDTO updateById(Long id, StoreDTO store) {
+        // TODO : 존재 여부를 검증
+        store.setId(id);
+        storeRepository.save(store);
+        return store;
+    }
+
+    public StoreDTO changePriceById(Long id, int price) {
+        StoreDTO store = storeRepository.findById(id).orElseThrow(); // DB에 저장된 값
+        store.setPrice(price);
+        storeRepository.save(store);
+        return store;
+    }
 }
