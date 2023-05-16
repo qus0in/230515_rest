@@ -5,10 +5,23 @@
     <title>Title</title>
     <script src="script.js"></script>
 </head>
+<!-- http://localhost:8080/ -->
+<!-- static/index.html ? 있는지를 찾아서 기본 경로로 불러옵니다 -->
 <body>
     <h1>인덱스</h1>
+    <!-- h(..) => 제목을 나타내고 뒤에 크가 커질수록 작아짐 -->
+    <!-- id = identity => id는 고유해야함 -->
+    <!-- 1. 실행중인 rest api를 사용해서 web에서 데이터를 넣어보기 -->
+    <!-- 2. 그 데이터를 불러오기   -->
+    <!-- https://opentutorials.org/course/3083 -->
+    <!-- https://poiemaweb.com/ 비동기 설명 잘되어 있음 -->
+    <!-- https://www.w3schools.com/ -->
+    <!-- http://www.tcpschool.com/javascript/intro -->
+    <!-- https://developer.mozilla.org/ko/docs/Web/JavaScript -->
     <h2 id="data"></h2>
+    <!-- addStore => fetch => api를 호출 => 가게 정보 -->
     <button onclick="addStore();">추가하기</button>
+    <!-- loadStore => fetch => api를 호출 => 가게 정보 => id=data -->
     <button onclick="loadStore();">불러오기</button>
 </body>
 </html>
