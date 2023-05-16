@@ -8,10 +8,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Service // 등록
+// Singleton <- Controller나 Service는 한 번 생성해놓으면 바뀔 없음 -> 계속 사용해주면 됨
+// 하나의 클래스에 대응하는 한 객체만 만들고, 생성대신에 한 번 만들어진 객체를 계속 사용하는 기법 Singleton
+// Spring <- Singleton Pattern. => 객체? => 스프링 컨테이너
 public class StoreService {
-    @Autowired
+    @Autowired // 의존성 주입 <- '...Repository' 타입(클래스) => 스프링 컨테이너 등록 => 호출 시 제공
     private StoreRepository storeRepository;
+    // 생성자 주입
+    // @Autowired 주입
 
     public StoreDTO createStore(StoreDTO store) {
         return storeRepository.save(store);
